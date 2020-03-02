@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component, useState} from 'react';
+import {
+   BrowserRouter,
+   Route,
+   Switch
+} from 'react-router-dom';
+import axios from 'axios';
+import key from './config';
 import './App.css';
 
-function App() {
+const App = () => {
+   function apiCall (zipCode = 97206) {
+     axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${key}`)
+     .then(res => {
+     console.log(res)
+    })
+    .catch(error => {
+      console.log('Error fetching and parsing data', error);
+    }); 
+   }
+   apiCall()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
