@@ -1,25 +1,23 @@
 import React, { useState } from 'react'
-import App from '../App';
 import Card from 'react-bootstrap/Card'
+// import CardDeck from 'react-bootstrap/CardDeck'
+
 const card = props => {
-   const results = props.data;
-   console.log(results)
-// console.log(props.setWeatherData)
-   // let temp = props.weatherData.main.temp;
+   const weatherData = props.data;
+   console.log(weatherData)
    return(
       <div>
-      <Card style={{ width: '18rem' }}>
-   <Card.Body>
-    <Card.Title>Current Weather</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Card Subtitl </Card.Subtitle>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-      <Card.Link href="#">Card Link</Card.Link>
-      <Card.Link href="#">Another Link</Card.Link>
-      </Card.Body>
-   </Card>
+         <Card className='card' style={{ width: '30rem', border: 'dark' }}>
+         {/* <Card.Header>Header</Card.Header> */}
+            <Card.Body>
+            <Card.Title>Current Weather for {weatherData.city} </Card.Title>
+            <Card.Subtitle >Condition: {weatherData.description} </Card.Subtitle>
+            <Card.Text>  Current Temp: { weatherData.temp }° Feels like: {weatherData.feelsLike}° High: {weatherData.high}°  Low: {weatherData.low}°  Humidity: {weatherData.humidity}%
+            </Card.Text>
+            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body>
+         </Card>
 </div>
      // <div>{props.results}</div>
    // <li className='card-container'>
