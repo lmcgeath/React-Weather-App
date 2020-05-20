@@ -24,39 +24,44 @@ class App extends Component {
          high: undefined,
          low: undefined,
          feelsLike: undefined,
-         humidity: undefined
+         humidity: undefined,
+         wind: undefined,
+         icon: undefined
       };
     } 
     componentDidMount() {
       this.performSearch();
-      console.log(searchValue)
+      // console.log(searchValue)
+
     }
 
-   performSearch = (zipCode = 97206) => {
-     axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${key}`)
-     .then(res => {
-        this.setState({
-         city: res.data.name,
-         description: res.data.weather[0].description,
-         temp: res.data.main.temp,
-         high: res.data.main.temp_max,
-         low: res.data.main.temp_min,
-         feelsLike: res.data.main.feels_like,
-         humidity: res.data.main.humidity
+   performSearch = (query = 97214) => {
+      axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${query}&units=imperial&appid=${key}`)
+         .then(res => {
+            console.log(res.data)
+            this.setState({
+            city: res.data.name,
+            description: res.data.weather[0].description.toUpperCase(),
+            temp: Math.floor(res.data.main.temp),
+            high: res.data.main.temp_max,
+            low: res.data.main.temp_min,
+            feelsLike: Math.floor(res.data.main.feels_like),
+            humidity: res.data.main.humidity,
+            wind: Math.floor(res.data.wind.speed),
+            icon: res.data.weather[0].icon
 
         })
-        console.log(res.data)
-     
-
     })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-    }); 
-   };
-   // console.log(searchValue);
-
-   // console.log(apiCall(Search.searchValue))
-   // useEffect(() => apiCall());
+    
+   //  } else if (//entered in city and state boxes) {
+   //     axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${key}`)
+   //       .then(res => {
+   //          console.log(res.data)
+   //       })
+   //       .catch(error => {
+   //          console.log('Error fetching and parsing data', error);
+   //        });   
+    }
 render() {
   return (
     <div className="App">
