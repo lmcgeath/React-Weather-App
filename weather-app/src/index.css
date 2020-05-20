@@ -24,13 +24,9 @@
    float: none;
    margin-bottom: 10px;
    
-} */
+}/*/
 
-/* .search-form {
-   max-width: 460px;
-   display: center;
-   margin: 0 auto 32px;
- } */ 
+
  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
  *,
  *:after,
@@ -39,7 +35,9 @@
  }
  
  body {
-   background: #CEF;
+   background-image: url('./img/clouds2.jpg');
+    background-repeat: no-repeat;
+   /*background: #CEF; */
  }
 
  .city {
@@ -50,7 +48,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 98vh;
+   height: 75vh;
  }
  
  .widget {
@@ -118,7 +116,6 @@
  .icon {
    position: absolute;
    border-radius: 50%;
-   /* background: #9cd0ff; */
    height: 75px;
    width: 75px;
    top: 195px;
@@ -186,6 +183,64 @@
    margin-top: 16px;
  }
  
+ /*.search-form {
+   max-width: 460px;
+   display: center;
+   margin: 0 auto 32px;
+ } */ 
+ 
  .wind {
    margin-top: 4px;
+ }
+
+/* --------- Search section ---------- */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+} */
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  font-size: 28px;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+}
+
+/* .searchTerm:focus{
+  color:#0066ff;
+} */
+
+.searchButton {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #00B4CC;
+  background: #3cc0fe;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+   width: 30%;
+   position: absolute;
+   top: 5%;
+   left: 50%;
+   transform: translate(-50%, -50%);
  }

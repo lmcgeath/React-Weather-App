@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import Card from 'react-bootstrap/Card'
-// import CardDeck from 'react-bootstrap/CardDeck'
 
 const card = props => {
    const weatherData = props.data;
    // console.log(weatherData)
    return(
       <div className="container">
-      
-  <div className="widget">
-    <div className="details">
+      <div className="widget">
+      <div className="details">
       <div className="city">{weatherData.city}</div>
       <div className="temperature">{weatherData.temp}°</div>
       <div className="summary">
@@ -18,16 +15,14 @@ const card = props => {
       <div className="precipitation">Feels like: {weatherData.feelsLike}° Humidity: {weatherData.humidity}%</div>
       <div className="wind">Wind: {weatherData.wind} MPH</div>
     </div>
-    <div className="pictoBackdrop"></div>
-    <div className="pictoFrame"></div>
-    <div className="pictoCloudBig"></div>
-    <div className="pictoCloudFill"></div>
-    <div className="pictoCloudSmall"></div>
-    <div>
-      <img className="icon" src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}/></div>
-    {/* <div className="iconCloudFill"></div> */}
-    {/* <div className="iconCloudSmall"></div> */}
-  </div>
+      <div className="pictoBackdrop"></div>
+      <div className="pictoFrame"></div>
+      <div className="pictoCloudBig"></div>
+      <div className="pictoCloudFill"></div>
+      <div className="pictoCloudSmall"></div>
+      <div>
+         <img className="icon" src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}/></div>
+   </div>
 </div>
 //       <div>
 //          <Card className='card' style={{ width: '30rem' }}>

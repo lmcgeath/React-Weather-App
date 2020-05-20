@@ -17,10 +17,12 @@ class Search extends Component {
 //Renders a search for and passes the user input
 render() {
    return (
-      <form className='search-form' onSubmit={this.handleSubmit}>
-         <input type='search' onChange={this.onSearchChange} name='search' ref={(input) => this.query = input} placeholder='Enter zip code' />
-         <input type='submit' value='Search' />
-      </form>
+      <div className='wrap'>
+         <form className='search' onSubmit={this.handleSubmit}>
+            <input type='search' className='searchTerm' onChange={this.onSearchChange} name='search' ref={(input) => this.query = input} placeholder='Enter zip code' />
+            <input type='submit' className='searchButton' value='Search' />
+         </form>
+      </div>
       );
    }
 }
